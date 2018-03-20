@@ -50,8 +50,8 @@ consul_manage_group: no
 consul_group: "bin"
 
 ### Log user, group, facility
-syslog_user: "{{ lookup('env','SYSLOG_USER') | default('syslog', true) }}"
-syslog_group: "{{ lookup('env','SYSLOG_GROUP') | default('adm', true) }}"
+syslog_user: "{{ lookup('env','SYSLOG_USER') | default('vagrant', true) }}"
+syslog_group: "{{ lookup('env','SYSLOG_GROUP') | default('vagrant', true) }}"
 consul_log_level: "{{ lookup('env','CONSUL_LOG_LEVEL') | default('INFO', true) }}"
 consul_syslog_enable: "{{ lookup('env','CONSUL_SYSLOG_ENABLE') | default(true, true) }}"
 consul_syslog_facility: "{{ lookup('env','CONSUL_SYSLOG_FACILITY') | default('local0', true) }}"
