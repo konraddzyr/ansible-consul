@@ -7,7 +7,7 @@
     extra_args: --user
   delegate_to: 127.0.0.1
   become: false
-  when: is_virtualenv is not defined
+  when: (is_virtualenv is not defined or is_virtualenv == false)
 
 - name: Install netaddr dependency on controlling host (virtualenv)
   pip:
@@ -15,7 +15,7 @@
   delegate_to: 127.0.0.1
   become: true
   become_user: root
-  when: is_virtualenv is defined
+  when: (is_virtualenv is defined and is_virtualenv == true)
 
 - name: Include checks/asserts
   import_tasks: asserts.yml
